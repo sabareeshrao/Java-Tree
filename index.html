@@ -25,7 +25,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 .logical-block-btn{display:none}.logical-block-btn.visible{display:inline-flex;background:#23352f;border-color:#3d665a;color:#b9eadc}
 .tok-comment{color:#6A9955}.tok-keyword{color:#C586C0}.tok-type{color:#4EC9B0}.tok-string{color:#CE9178}.tok-number{color:#B5CEA8}.tok-annotation{color:#DCDCAA}.tok-fn{color:#DCDCAA}.tok-tag{color:#569CD6}.tok-attr{color:#9CDCFE}.tok-variable{color:#4FC1FF}.tok-punct{color:#808080}
 .inspector-body{flex:1 1 auto;min-height:0;overflow:auto;padding:12px 14px 14px;scrollbar-gutter:stable}.imeta{font-size:12px;color:#8f8f8f;margin-bottom:7px}.ititle{font-size:18px;font-weight:650;margin-bottom:9px}.idetail{font-size:14px;line-height:1.55;color:#ddd}.iaction{margin-top:12px;border-left:3px solid var(--accent);padding:9px 11px;background:#252525;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5}.ipath{margin-top:10px;color:#999;font:11px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
-.code{margin:0;padding:10px 0;max-height:270px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto;scrollbar-gutter:stable}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:#343434;color:#fff;font-weight:700}.code-line.focus-block{background:#303030;color:#fff}.code-line.focus-block-start{border-top:1px solid #5d5427}.code-line.focus-block-end{border-bottom:1px solid #5d5427}.code-line.focus-block-marker{border-left:4px solid #f6d365}.code-arrow{color:#f6d365;font-weight:700}.full-state-details{margin-top:12px;border:1px solid #3a3a3a;border-radius:9px;background:#151515;overflow:hidden}.full-state-details summary{cursor:pointer;padding:10px 11px;color:#aaa;font-size:11px;user-select:none}.full-state-details[open] summary{border-bottom:1px solid #303030;color:#ddd}
+.code{margin:0;padding:10px 0;max-height:270px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto;scrollbar-gutter:stable}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:#2a2a2a;color:#fff;font-weight:700;box-shadow:inset 3px 0 0 #8e8344}.code-line.focus-block{background:#1d1d1d;color:#eee;box-shadow:inset 3px 0 0 #8e8344}.code-line.focus-block-start{border-top:none}.code-line.focus-block-end{border-bottom:none}.code-line.focus-block-marker{background:#252525;color:#fff;font-weight:700}.code-arrow{color:#cbbd63;font-weight:700}.full-state-details{margin-top:12px;border:1px solid #3a3a3a;border-radius:9px;background:#151515;overflow:hidden}.full-state-details summary{cursor:pointer;padding:10px 11px;color:#aaa;font-size:11px;user-select:none}.full-state-details[open] summary{border-bottom:1px solid #303030;color:#ddd}
 .folder-note{padding:12px;color:#c8c8c8;font:12px/1.5 ui-monospace,monospace}
 .navstrip{position:sticky;top:56px;z-index:17;height:58px;border-bottom:1px solid #303030;background:rgba(29,29,29,.985);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:9px 22px;min-width:0}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:9px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}.navbtn.utility{background:#242424;color:#cfcfcf}.navbtn.utility:hover{background:#333}.navbtn.show-inspector{display:none}.navbtn.show-inspector.visible{display:inline-flex}.inspector.hidden{display:none!important}.navbtn:hover:not(:disabled){background:#383838}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px;min-width:0}.jump input{width:190px;background:#111;border:1px solid #4a4a4a;color:#fff;border-radius:9px;padding:9px 11px;font:13px ui-monospace,monospace;outline:none}.jump input:focus{border-color:#777;box-shadow:0 0 0 2px rgba(255,255,255,.06)}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:92px;color:#8e8e8e;font-size:12px;text-align:left}
 .stage-list,.scroll,.tree-body,.inspector-body,.focus-code,.code{scrollbar-width:thin;scrollbar-color:#555 transparent}.stage-list::-webkit-scrollbar,.scroll::-webkit-scrollbar,.tree-body::-webkit-scrollbar,.inspector-body::-webkit-scrollbar,.focus-code::-webkit-scrollbar,.code::-webkit-scrollbar{width:8px;height:8px}.stage-list::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb,.tree-body::-webkit-scrollbar-thumb,.inspector-body::-webkit-scrollbar-thumb,.focus-code::-webkit-scrollbar-thumb,.code::-webkit-scrollbar-thumb{background:#555;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.stage-list::-webkit-scrollbar-thumb:hover,.scroll::-webkit-scrollbar-thumb:hover,.tree-body::-webkit-scrollbar-thumb:hover,.inspector-body::-webkit-scrollbar-thumb:hover,.focus-code::-webkit-scrollbar-thumb:hover,.code::-webkit-scrollbar-thumb:hover{background:#6a6a6a;background-clip:padding-box}
@@ -42,7 +42,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.17</span><div class="badge" id="badge">main · 000018.d</div></div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.18</span><div class="badge" id="badge">main · 000018.d</div></div></header>
   <nav class="navstrip" aria-label="Stage navigation">
     <button class="navbtn" id="prev">◀ Previous</button>
     <div class="jump"><span>Stage</span><input id="jump" value="000018.d" placeholder="Type 1400, 1400.a…" spellcheck="false"><button class="go" id="go">Go</button></div>
@@ -89,7 +89,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 </section>
 
 <script>
-const UI_SCHEMA_VERSION="2026.10.02.17";
+const UI_SCHEMA_VERSION="2026.10.02.18";
 if(localStorage.getItem("petclinic-ui-schema")!==UI_SCHEMA_VERSION){
   localStorage.removeItem("petclinic-inspector-box");
   localStorage.setItem("petclinic-ui-schema",UI_SCHEMA_VERSION);
@@ -273,6 +273,9 @@ function focusInfo(s){
     // full-state view can highlight the whole developer action as well.
     let blockStart=-1;
     const normalizedBlock=displayLines.map(line=>line.trimEnd());
+
+    // Pass 1: preserve source indentation when the stage block was captured
+    // exactly from the accumulated file.
     for(let i=0;i<=lines.length-normalizedBlock.length;i++){
       let match=true;
       for(let j=0;j<normalizedBlock.length;j++){
@@ -286,6 +289,28 @@ function focusInfo(s){
         break;
       }
     }
+
+    // Pass 2: older educational stages sometimes stored focusBlock with
+    // different leading indentation from the accumulated file. Match the
+    // complete contiguous block by trimmed source text rather than silently
+    // dropping the highlight in "Show full instant state".
+    if(blockStart<0){
+      const looseBlock=displayLines.map(line=>line.trim());
+      for(let i=0;i<=lines.length-looseBlock.length;i++){
+        let match=true;
+        for(let j=0;j<looseBlock.length;j++){
+          if(lines[i+j].trim()!==looseBlock[j]){
+            match=false;
+            break;
+          }
+        }
+        if(match){
+          blockStart=i;
+          break;
+        }
+      }
+    }
+
     const blockEnd=blockStart>=0?blockStart+displayLines.length-1:-1;
 
     return {
@@ -400,13 +425,17 @@ function renderCode(s){
   pre.className="code";
   let focusLine=null;
 
+  const semanticFocusLine=info.semanticBlock&&info.blockStart>=0
+    ? info.blockStart+Math.max(0,info.displayFocusIndex)
+    : -1;
+
   info.lines.forEach((line,lineNumber)=>{
     const span=document.createElement("span");
     const inBlock=info.semanticBlock && info.blockStart>=0 &&
       lineNumber>=info.blockStart && lineNumber<=info.blockEnd;
     const isBlockStart=inBlock && lineNumber===info.blockStart;
     const isBlockEnd=inBlock && lineNumber===info.blockEnd;
-    const isMarker=inBlock && lineNumber===info.blockStart;
+    const isMarker=inBlock && lineNumber===semanticFocusLine;
     const isLineFocus=!info.semanticBlock && lineNumber===info.lineIndex;
 
     span.className="code-line"
@@ -421,11 +450,23 @@ function renderCode(s){
       focusLine=span;
       const a=document.createElement("span");
       a.className="code-arrow";
-      a.textContent=info.semanticBlock?"  👈 CURRENT BLOCK":"  👈 CURRENT";
+      a.textContent=info.semanticBlock?"  👈 CURRENT":"  👈 CURRENT";
       span.appendChild(a);
     }
     pre.appendChild(span);
   });
+
+  if(info.semanticBlock && info.blockStart<0 && info.lineIndex>=0){
+    const fallbackLine=pre.children[info.lineIndex];
+    if(fallbackLine){
+      fallbackLine.classList.add("focus");
+      const a=document.createElement("span");
+      a.className="code-arrow";
+      a.textContent="  👈 CURRENT";
+      fallbackLine.appendChild(a);
+      focusLine=fallbackLine;
+    }
+  }
 
   details.append(summary,pre);
   cs.appendChild(details);
