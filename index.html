@@ -22,7 +22,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 .inspector{position:fixed;z-index:30;top:132px;right:24px;width:min(460px,calc(100vw - 32px));height:min(50vh,540px);max-height:50vh;min-width:320px;min-height:220px;display:flex;flex-direction:column;background:#2b2b2b;border:1px solid #4a4a4a;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.45);overflow:hidden}.inspector.maximized{top:124px!important;left:272px!important;right:12px!important;bottom:12px!important;width:auto!important;height:auto!important;max-height:none!important}
 .dragbar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:#242424;border-bottom:1px solid #3a3a3a;cursor:grab;user-select:none;touch-action:none}.dragbar:active{cursor:grabbing}.draglabel{font-size:12px;color:#aaa;white-space:nowrap}.inspector-actions{display:flex;align-items:center;gap:6px;margin-left:auto}.toolbtn{border:1px solid #454545;background:#303030;color:#ddd;border-radius:7px;padding:5px 8px;font-size:11px;cursor:pointer;white-space:nowrap}.toolbtn:hover{background:#3a3a3a}.stagepill{font:12px ui-monospace,monospace;color:#d8d8d8;border:1px solid #454545;padding:4px 7px;border-radius:999px}.resize-handle{position:absolute;bottom:0;width:24px;height:24px;z-index:50;touch-action:none}.resize-handle-right{right:0;cursor:nwse-resize}.resize-handle-left{left:0;cursor:nesw-resize}.resize-handle:before,.resize-handle:after{content:"";position:absolute;bottom:5px;width:10px;height:10px}.resize-handle-right:before,.resize-handle-right:after{right:5px;border-right:2px solid #777;border-bottom:2px solid #777}.resize-handle-left:before,.resize-handle-left:after{left:5px;border-left:2px solid #777;border-bottom:2px solid #777}.resize-handle:after{width:5px;height:5px;bottom:9px}.resize-handle-right:after{right:9px}.resize-handle-left:after{left:9px}
 .focus-dock{flex:0 0 auto;padding:10px 12px 12px;background:#262626;border-bottom:1px solid #414141;box-shadow:0 7px 18px rgba(0,0,0,.18)}.focus-kicker{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;color:#9b9b9b;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.focus-code{margin:0;padding:10px 11px;max-height:138px;overflow:auto;border:1px solid #4b4b4b;border-radius:9px;background:#0b0b0b;color:#fff;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;white-space:pre;overflow-wrap:normal;scrollbar-gutter:stable}.inspector-body{overflow:auto;padding:12px 14px 14px;scrollbar-gutter:stable}.imeta{font-size:12px;color:#8f8f8f;margin-bottom:7px}.ititle{font-size:18px;font-weight:650;margin-bottom:9px}.idetail{font-size:14px;line-height:1.55;color:#ddd}.iaction{margin-top:12px;border-left:3px solid var(--accent);padding:9px 11px;background:#252525;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5}.ipath{margin-top:10px;color:#999;font:11px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
-.codewrap{margin-top:12px;background:var(--code);border:1px solid #3a3a3a;border-radius:10px;overflow:hidden}.code-head{display:flex;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #303030;color:#999;font-size:11px}.code{margin:0;padding:10px 0;max-height:270px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto;scrollbar-gutter:stable}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:#343434;color:#fff}.code-arrow{color:#f6d365;font-weight:700}
+.codewrap{margin-top:12px;background:var(--code);border:1px solid #3a3a3a;border-radius:10px;overflow:hidden}.code-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-bottom:1px solid #303030;color:#999;font-size:11px}.code-context{margin:0;padding:9px 0;font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow-x:auto;scrollbar-gutter:stable}.code{margin:0;padding:10px 0;max-height:270px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto;scrollbar-gutter:stable}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:#343434;color:#fff;font-weight:700}.code-lineno{display:inline-block;width:4.5em;color:#666;user-select:none}.code-arrow{color:#f6d365;font-weight:700}.full-state-details{margin-top:10px;border:1px solid #3a3a3a;border-radius:9px;background:#151515;overflow:hidden}.full-state-details summary{cursor:pointer;padding:9px 11px;color:#aaa;font-size:11px;user-select:none}.full-state-details[open] summary{border-bottom:1px solid #303030;color:#ddd}
 .folder-note{padding:12px;color:#c8c8c8;font:12px/1.5 ui-monospace,monospace}
 .navstrip{position:sticky;top:56px;z-index:17;height:58px;border-bottom:1px solid #303030;background:rgba(29,29,29,.985);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:9px 22px;min-width:0}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:9px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}.navbtn.utility{background:#242424;color:#cfcfcf}.navbtn.utility:hover{background:#333}.navbtn.show-inspector{display:none}.navbtn.show-inspector.visible{display:inline-flex}.inspector.hidden{display:none!important}.navbtn:hover:not(:disabled){background:#383838}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px;min-width:0}.jump input{width:190px;background:#111;border:1px solid #4a4a4a;color:#fff;border-radius:9px;padding:9px 11px;font:13px ui-monospace,monospace;outline:none}.jump input:focus{border-color:#777;box-shadow:0 0 0 2px rgba(255,255,255,.06)}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:92px;color:#8e8e8e;font-size:12px;text-align:left}
 .stage-list,.scroll,.tree-body,.inspector-body,.code{scrollbar-width:thin;scrollbar-color:#555 transparent}.stage-list::-webkit-scrollbar,.scroll::-webkit-scrollbar,.tree-body::-webkit-scrollbar,.inspector-body::-webkit-scrollbar,.code::-webkit-scrollbar{width:8px;height:8px}.stage-list::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb,.tree-body::-webkit-scrollbar-thumb,.inspector-body::-webkit-scrollbar-thumb,.code::-webkit-scrollbar-thumb{background:#555;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.stage-list::-webkit-scrollbar-thumb:hover,.scroll::-webkit-scrollbar-thumb:hover,.tree-body::-webkit-scrollbar-thumb:hover,.inspector-body::-webkit-scrollbar-thumb:hover,.code::-webkit-scrollbar-thumb:hover{background:#6a6a6a;background-clip:padding-box}
@@ -39,7 +39,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.8</span><div class="badge" id="badge">main · 000018.d</div></div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.9</span><div class="badge" id="badge">main · 000018.d</div></div></header>
   <nav class="navstrip" aria-label="Stage navigation">
     <button class="navbtn" id="prev">◀ Previous</button>
     <div class="jump"><span>Stage</span><input id="jump" value="000018.d" placeholder="Type 1400, 1400.a…" spellcheck="false"><button class="go" id="go">Go</button></div>
@@ -61,7 +61,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="dragbar" id="dragbar">
     <span class="draglabel">⋮⋮ Drag inspector</span>
     <div class="inspector-actions">
-      <button class="toolbtn" id="copyFocus" title="Copy only the current focused code">Copy focus</button>
+      <button class="toolbtn" id="copyFocus" title="Copy the visible related-code context">Copy focus</button>
       <button class="toolbtn" id="copyState" title="Copy the full current instant state">Copy state</button>
       <button class="toolbtn" id="maximizeInspector" title="Expand / restore inspector">⛶</button>
       <button class="toolbtn" id="hideInspector" title="Hide inspector">Hide</button>
@@ -85,7 +85,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 </section>
 
 <script>
-const UI_SCHEMA_VERSION="2026.10.02.8";
+const UI_SCHEMA_VERSION="2026.10.02.9";
 if(localStorage.getItem("petclinic-ui-schema")!==UI_SCHEMA_VERSION){
   localStorage.removeItem("petclinic-inspector-box");
   localStorage.setItem("petclinic-ui-schema",UI_SCHEMA_VERSION);
@@ -203,13 +203,13 @@ function focusInfo(s){
       if(lines[i].trim()){lineIndex=i;break}
     }
   }
-  const start=Math.max(0,lineIndex-2);
-  const finish=Math.min(lines.length,lineIndex+3);
+  const start=Math.max(0,lineIndex-3);
+  const finish=Math.min(lines.length,lineIndex+4);
   const snippet=lines.slice(start,finish).map((line,offset)=>{
     const actual=start+offset;
     return (actual===lineIndex?"▶ ":"  ")+line;
   }).join("\n");
-  return {text:snippet||s.focus||s.name,lineIndex,lines};
+  return {text:snippet||s.focus||s.name,lineIndex,lines,start,finish};
 }
 function renderCode(s){
   const info=focusInfo(s);
@@ -218,17 +218,50 @@ function renderCode(s){
 
   const cs=document.getElementById("codeSection");
   cs.innerHTML="";
+
   const wrap=document.createElement("div");
   wrap.className="codewrap";
   const head=document.createElement("div");
   head.className="code-head";
 
   if(s.code){
-    head.innerHTML="<span>"+escapeHtml(s.lang||"code")+"</span><span>full instant state · focus centered</span>";
+    head.innerHTML="<span>"+escapeHtml(s.lang||"code")+"</span><span>RELATED CODE · CURRENT FOCUS</span>";
+    const context=document.createElement("pre");
+    context.className="code-context";
+
+    for(let lineNumber=info.start;lineNumber<info.finish;lineNumber++){
+      const line=info.lines[lineNumber]??"";
+      const span=document.createElement("span");
+      span.className="code-line";
+      const focused=lineNumber===info.lineIndex;
+      if(focused)span.classList.add("focus");
+
+      const num=document.createElement("span");
+      num.className="code-lineno";
+      num.textContent="L"+String(lineNumber+1).padStart(3,"0")+" ";
+      span.appendChild(num);
+      span.appendChild(document.createTextNode(line));
+
+      if(focused){
+        const a=document.createElement("span");
+        a.className="code-arrow";
+        a.textContent="  👈 CURRENT";
+        span.appendChild(a);
+      }
+      context.appendChild(span);
+    }
+
+    wrap.append(head,context);
+    cs.appendChild(wrap);
+
+    const details=document.createElement("details");
+    details.className="full-state-details";
+    const summary=document.createElement("summary");
+    summary.textContent="Show full instant state";
     const pre=document.createElement("pre");
     pre.className="code";
-    let focusLine=null;
 
+    let focusLine=null;
     info.lines.forEach((line,lineNumber)=>{
       const span=document.createElement("span");
       span.className="code-line";
@@ -241,33 +274,26 @@ function renderCode(s){
       if(focused){
         const a=document.createElement("span");
         a.className="code-arrow";
-        a.textContent="  👈 CURRENT FOCUS";
+        a.textContent="  👈 CURRENT";
         span.appendChild(a);
       }
       pre.appendChild(span);
     });
 
-    wrap.append(head,pre);
-    cs.appendChild(wrap);
+    details.append(summary,pre);
+    cs.appendChild(details);
 
-    requestAnimationFrame(()=>{
+    details.addEventListener("toggle",()=>{
+      if(!details.open||!focusLine)return;
       requestAnimationFrame(()=>{
-        if(focusLine){
-          const pr=pre.getBoundingClientRect();
-          const lr=focusLine.getBoundingClientRect();
-          const verticalDelta=(lr.top-pr.top)-((pre.clientHeight-lr.height)/2);
-          pre.scrollTop=Math.max(0,pre.scrollTop+verticalDelta);
-
-          const horizontalDelta=(lr.left-pr.left)-20;
-          if(horizontalDelta>0) pre.scrollLeft=Math.max(0,pre.scrollLeft+horizontalDelta);
-        }else{
-          pre.scrollTop=0;
-          pre.scrollLeft=0;
-        }
+        const pr=pre.getBoundingClientRect();
+        const lr=focusLine.getBoundingClientRect();
+        pre.scrollTop=Math.max(0,pre.scrollTop+(lr.top-pr.top)-((pre.clientHeight-lr.height)/2));
+        pre.scrollLeft=Math.max(0,focusLine.offsetLeft-20);
       });
     });
   }else{
-    head.innerHTML="<span>construction</span><span>instant state</span>";
+    head.innerHTML="<span>construction</span><span>CURRENT FOCUS</span>";
     const note=document.createElement("div");
     note.className="folder-note";
     note.textContent="Folder exists at this stage: "+s.path.join("/")+"/";
