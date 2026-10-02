@@ -6,19 +6,23 @@
 <title>Spring PetClinic — From Zero</title>
 <style>
 :root{--bg:#212121;--side:#171717;--panel:#2f2f2f;--panel2:#1e1e1e;--text:#ececec;--muted:#a6a6a6;--border:#3a3a3a;--accent:#10a37f;--hover:#2a2a2a;--code:#0d0d0d}
-*{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:100vh}.sidebar{background:var(--side);border-right:1px solid #252525;padding:12px;display:flex;flex-direction:column;min-width:0}
 .brand{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;font-weight:650}.logo{width:28px;height:28px;border-radius:8px;background:#fff;color:#111;display:grid;place-items:center;font-weight:800}
-.newchat{margin:10px 0 16px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;color:#ddd;font-size:14px}
-.side-title{padding:8px 10px;color:#8d8d8d;font-size:12px}.stage-list{overflow:auto}.stage-item{padding:9px 10px;border-radius:8px;font-size:13px;color:#cfcfcf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.stage-item:hover{background:var(--hover)}.stage-item.active{background:#2a2a2a;color:#fff}
+.newchat{margin:10px 0 16px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;color:#ddd;font-size:14px}.side-title{padding:8px 10px;color:#8d8d8d;font-size:12px}
+.stage-list{overflow:auto}.stage-item{padding:9px 10px;border-radius:8px;font-size:13px;color:#cfcfcf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.stage-item:hover{background:var(--hover)}.stage-item.active{background:#2a2a2a;color:#fff}
 .source{margin-top:auto;padding:12px 10px;color:#777;font-size:11px;line-height:1.45}.main{min-width:0;display:grid;grid-template-rows:56px 1fr 76px}
 .topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2b2b2b;padding:0 22px;background:rgba(33,33,33,.96)}.title{font-size:14px;font-weight:600}.badge{font-size:12px;color:#bbb;border:1px solid var(--border);padding:6px 9px;border-radius:999px}
-.scroll{overflow:auto}.conversation{width:min(900px,calc(100% - 36px));margin:0 auto;padding:34px 0 80px}.meta{color:#8f8f8f;font-size:13px;margin-bottom:8px}.h1{font-size:25px;font-weight:650;letter-spacing:-.02em;margin:0 0 12px}.lead{font-size:16px;line-height:1.7;color:#ddd;margin-bottom:24px}.action{border-left:3px solid var(--accent);padding:10px 14px;background:#252525;border-radius:0 10px 10px 0;margin-bottom:26px;color:#d7d7d7;line-height:1.55}
-.section-title{font-size:14px;font-weight:650;margin:22px 0 10px}.tree,.codewrap{background:var(--panel2);border:1px solid #333;border-radius:12px;overflow:hidden}.tree-head,.code-head{display:flex;justify-content:space-between;align-items:center;padding:10px 13px;border-bottom:1px solid #303030;color:#aaa;font-size:12px}
-.tree-body{padding:14px 16px;font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto}.tree-line{white-space:pre}.tree-line.current{color:#fff;background:#292929;border-radius:5px}.id{color:#7dd3fc}.current-tag{color:#f6d365;font-weight:700}
-.code{margin:0;padding:16px;min-height:110px;white-space:pre-wrap;font:13.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;background:var(--code)}.typing-note{padding:14px 16px;color:#bdbdbd;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code)}
-.footer{border-top:1px solid #303030;background:#1d1d1d;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 18px}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:10px 15px;border-radius:9px;cursor:pointer}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px}.jump input{width:126px;background:#111;border:1px solid #444;color:#fff;border-radius:8px;padding:9px 10px;font:13px ui-monospace,monospace}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:120px;color:#8e8e8e;font-size:12px;text-align:center}
-@media(max-width:780px){.app{grid-template-columns:1fr}.sidebar{display:none}.conversation{width:min(100% - 24px,900px)}.footer{gap:7px}.counter{display:none}.navbtn{padding:9px 10px}}
+.scroll{overflow:auto}.conversation{width:min(1100px,calc(100% - 36px));margin:0 auto;padding:28px 0 90px}.page-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.page-heading h1{font-size:20px;margin:0}.hint{font-size:12px;color:#777}
+.tree{background:var(--panel2);border:1px solid #333;border-radius:12px;overflow:hidden}.tree-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:10px 13px;border-bottom:1px solid #303030;background:#1e1e1e;color:#aaa;font-size:12px}
+.tree-body{padding:14px 16px;font:14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto;min-height:calc(100vh - 230px)}.tree-line{white-space:pre;width:max-content;min-width:100%}.tree-line.current{color:#fff;background:#292929;border-radius:5px}.id{color:#7dd3fc}.current-tag{color:#f6d365;font-weight:700}
+.inspector{position:fixed;z-index:30;top:76px;right:24px;width:min(440px,calc(100vw - 32px));max-height:calc(100vh - 170px);display:flex;flex-direction:column;background:#2b2b2b;border:1px solid #4a4a4a;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.45);overflow:hidden}
+.dragbar{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:#242424;border-bottom:1px solid #3a3a3a;cursor:grab;user-select:none;touch-action:none}.dragbar:active{cursor:grabbing}.draglabel{font-size:12px;color:#aaa}.stagepill{font:12px ui-monospace,monospace;color:#d8d8d8;border:1px solid #454545;padding:4px 7px;border-radius:999px}
+.inspector-body{overflow:auto;padding:14px}.imeta{font-size:12px;color:#8f8f8f;margin-bottom:7px}.ititle{font-size:18px;font-weight:650;margin-bottom:9px}.idetail{font-size:14px;line-height:1.55;color:#ddd}.iaction{margin-top:12px;border-left:3px solid var(--accent);padding:9px 11px;background:#252525;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5}.ipath{margin-top:10px;color:#999;font:11px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
+.codewrap{margin-top:12px;background:var(--code);border:1px solid #3a3a3a;border-radius:10px;overflow:hidden}.code-head{display:flex;justify-content:space-between;padding:8px 10px;border-bottom:1px solid #303030;color:#999;font-size:11px}.code{margin:0;padding:10px 0;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:#343434;color:#fff}.code-arrow{color:#f6d365;font-weight:700}
+.folder-note{padding:12px;color:#c8c8c8;font:12px/1.5 ui-monospace,monospace}
+.footer{border-top:1px solid #303030;background:#1d1d1d;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 18px}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:10px 15px;border-radius:9px;cursor:pointer}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px}.jump input{width:150px;background:#111;border:1px solid #444;color:#fff;border-radius:8px;padding:9px 10px;font:13px ui-monospace,monospace}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:120px;color:#8e8e8e;font-size:12px;text-align:center}
+@media(max-width:780px){.app{grid-template-columns:1fr}.sidebar{display:none}.conversation{width:min(100% - 16px,1100px)}.footer{gap:7px}.counter{display:none}.navbtn{padding:9px 10px}.inspector{top:68px;right:8px;width:calc(100vw - 16px);max-height:55vh}}
 </style>
 </head>
 <body>
@@ -26,32 +30,40 @@ body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:10
 <aside class="sidebar">
   <div class="brand"><div class="logo">P</div><div>PetClinic From Zero</div></div>
   <div class="newchat">Educational reconstruction</div>
-  <div class="side-title">COMMITS</div>
+  <div class="side-title">COMMITS / SUBSTAGES</div>
   <div class="stage-list" id="stageList"></div>
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="badge">main · 000010</div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="badge" id="badge">main · 000011</div></header>
   <div class="scroll" id="scroll"><div class="conversation">
-    <div class="meta" id="meta"></div>
-    <h1 class="h1" id="stageTitle"></h1>
-    <div class="lead" id="detail"></div>
-    <div class="action" id="action"></div>
-    <div class="section-title">Project tree</div>
-    <div class="tree"><div class="tree-head"><span>Accumulated state</span><span id="path"></span></div><div class="tree-body" id="tree"></div></div>
-    <div id="codeSection"></div>
+    <div class="page-heading"><h1>Accumulated project tree</h1><div class="hint">The stage inspector floats above the tree — drag it anywhere.</div></div>
+    <div class="tree"><div class="tree-head"><span>State up to current stage</span><span id="treePath"></span></div><div class="tree-body" id="tree"></div></div>
   </div></div>
   <footer class="footer">
     <button class="navbtn" id="prev">◀ Previous</button>
-    <div class="jump"><span>Commit</span><input id="jump" value="000010" spellcheck="false"><button class="go" id="go">Go</button></div>
+    <div class="jump"><span>Commit</span><input id="jump" value="000011" spellcheck="false"><button class="go" id="go">Go</button></div>
     <button class="navbtn" id="next">Next ▶</button>
     <div class="counter" id="counter"></div>
   </footer>
 </main>
 </div>
+
+<section class="inspector" id="inspector">
+  <div class="dragbar" id="dragbar"><span class="draglabel">⋮⋮ Drag stage inspector anywhere</span><span class="stagepill" id="stagePill"></span></div>
+  <div class="inspector-body">
+    <div class="imeta" id="meta"></div>
+    <div class="ititle" id="stageTitle"></div>
+    <div class="idetail" id="detail"></div>
+    <div class="iaction" id="action"></div>
+    <div class="ipath" id="path"></div>
+    <div id="codeSection"></div>
+  </div>
+</section>
+
 <script>
-const STAGES=[{"id":"000001","name":"spring-petclinic/","type":"folder","path":["spring-petclinic"],"title":"Create the project root","detail":"Start with only the project boundary. Nothing about Spring, Maven, Java packages, or application behavior exists yet.","action":"Create the root project folder that will contain the reconstruction."},{"id":"000002","name":"pom.xml","type":"file","path":["spring-petclinic","pom.xml"],"title":"Create the Maven build file skeleton","detail":"The finished reference project has a Maven build. We introduce the build file now, but only as a responsibility comment—no dependencies or plugins yet.","action":"Create pom.xml and document what this file will eventually control.","lang":"xml","code":"\u003c!--\n  Build configuration for Spring PetClinic.\n\n  Later stages will introduce:\n  - project coordinates\n  - Spring Boot parent/configuration\n  - Java version\n  - application dependencies\n  - build plugins\n-->"},{"id":"000003","name":"src/","type":"folder","path":["spring-petclinic","src"],"title":"Create the source root","detail":"Application code should not be mixed with root-level build files. We introduce the conventional source boundary before creating any Java code.","action":"Create src/ as the parent for application and test source trees."},{"id":"000004","name":"main/","type":"folder","path":["spring-petclinic","src","main"],"title":"Separate production source","detail":"Maven distinguishes production code from tests. At this stage we create only the production-side boundary.","action":"Create src/main/."},{"id":"000005","name":"java/","type":"folder","path":["spring-petclinic","src","main","java"],"title":"Create the Java source root","detail":"Spring PetClinic is primarily a Java application. This folder becomes the compiler's production Java source root.","action":"Create src/main/java/."},{"id":"000006","name":"org/","type":"folder","path":["spring-petclinic","src","main","java","org"],"title":"Begin the Java package path","detail":"The reference application uses the package org.springframework.samples.petclinic. We build that namespace one segment at a time.","action":"Create the first package segment: org/."},{"id":"000007","name":"springframework/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework"],"title":"Continue the package namespace","detail":"The second package segment identifies the Spring Framework namespace used by the reference project.","action":"Create org/springframework/."},{"id":"000008","name":"samples/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework","samples"],"title":"Create the samples package segment","detail":"PetClinic is maintained as a Spring sample application, so the namespace continues through samples.","action":"Create org/springframework/samples/."},{"id":"000009","name":"petclinic/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework","samples","petclinic"],"title":"Create the application base package","detail":"This is the base package that will eventually contain the Spring Boot entry point and the model, owner, vet, and system areas.","action":"Create org/springframework/samples/petclinic/."},{"id":"000010","name":"PetClinicApplication.java","type":"file","path":["spring-petclinic","src","main","java","org","springframework","samples","petclinic","PetClinicApplication.java"],"title":"Create the application entry-point skeleton","detail":"We create the first Java file but deliberately do not add Spring Boot annotations or a main method yet. The file begins as a responsibility comment only.","action":"Create PetClinicApplication.java with a comment describing its future responsibility.","lang":"java","code":"/*\n * Application entry point for Spring PetClinic.\n *\n * Spring Boot startup code will be introduced in later stages.\n */"}];
-let index=STAGES.length-1, timer=null;
+const STAGES=[{"id":"000001","name":"spring-petclinic/","type":"folder","path":["spring-petclinic"],"title":"Create the project root","detail":"Start with only the project boundary. Nothing about Spring, Maven, Java packages, or application behavior exists yet.","action":"Create the root project folder that will contain the reconstruction."},{"id":"000002","name":"pom.xml","type":"file","path":["spring-petclinic","pom.xml"],"title":"Create the Maven build file skeleton","detail":"The finished reference project has a Maven build. We introduce the build file now, but only as a responsibility comment—no dependencies or plugins yet.","action":"Create pom.xml and document what this file will eventually control.","lang":"xml","code":"\u003c!--\n  Build configuration for Spring PetClinic.\n\n  Later stages will introduce:\n  - project coordinates\n  - Spring Boot parent/configuration\n  - Java version\n  - application dependencies\n  - build plugins\n-->"},{"id":"000003","name":"src/","type":"folder","path":["spring-petclinic","src"],"title":"Create the source root","detail":"Application code should not be mixed with root-level build files. We introduce the conventional source boundary before creating any Java code.","action":"Create src/ as the parent for application and test source trees."},{"id":"000004","name":"main/","type":"folder","path":["spring-petclinic","src","main"],"title":"Separate production source","detail":"Maven distinguishes production code from tests. At this stage we create only the production-side boundary.","action":"Create src/main/."},{"id":"000005","name":"java/","type":"folder","path":["spring-petclinic","src","main","java"],"title":"Create the Java source root","detail":"Spring PetClinic is primarily a Java application. This folder becomes the compiler's production Java source root.","action":"Create src/main/java/."},{"id":"000006","name":"org/","type":"folder","path":["spring-petclinic","src","main","java","org"],"title":"Begin the Java package path","detail":"The reference application uses the package org.springframework.samples.petclinic. We build that namespace one segment at a time.","action":"Create the first package segment: org/."},{"id":"000007","name":"springframework/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework"],"title":"Continue the package namespace","detail":"The second package segment identifies the Spring Framework namespace used by the reference project.","action":"Create org/springframework/."},{"id":"000008","name":"samples/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework","samples"],"title":"Create the samples package segment","detail":"PetClinic is maintained as a Spring sample application, so the namespace continues through samples.","action":"Create org/springframework/samples/."},{"id":"000009","name":"petclinic/","type":"folder","path":["spring-petclinic","src","main","java","org","springframework","samples","petclinic"],"title":"Create the application base package","detail":"This is the base package that will eventually contain the Spring Boot entry point and the model, owner, vet, and system areas.","action":"Create org/springframework/samples/petclinic/."},{"id":"000010","name":"PetClinicApplication.java","type":"file","path":["spring-petclinic","src","main","java","org","springframework","samples","petclinic","PetClinicApplication.java"],"title":"Create the application entry-point skeleton","detail":"We create the first Java file but deliberately do not add Spring Boot annotations or a main method yet. The file begins as a responsibility comment only.","action":"Create PetClinicApplication.java with a comment describing its future responsibility.","lang":"java","code":"/*\n * Application entry point for Spring PetClinic.\n *\n * Spring Boot startup code will be introduced in later stages.\n */"},{"id":"000011","name":"XML declaration","type":"code","path":["spring-petclinic","pom.xml","XML declaration"],"title":"Declare the POM as XML","detail":"The build file stops being comment-only. We first tell tools that this document is XML and that it uses UTF-8.","action":"Add the XML declaration at the very top of pom.xml.","lang":"xml","code":"\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\u003c!--\n  Build configuration for Spring PetClinic.\n\n  Later stages will introduce:\n  - project coordinates\n  - Spring Boot parent/configuration\n  - Java version\n  - application dependencies\n  - build plugins\n-->","focus":"\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?>"}];
+let index=STAGES.length-1;
 
 function nodeTree(maxIndex){
   const root={children:new Map()};
@@ -72,7 +84,7 @@ function linesFor(root,currentId){
       const connector=depth===0?"":(isLast?"└── ":"├── ");
       const id='<span class="id">'+node.stage.id+'</span>';
       const cur=node.stage.id===currentId?' <span class="current-tag">👈 CURRENT</span>':'';
-      out.push({html:prefix+connector+id+' '+node.name+cur,current:node.stage.id===currentId});
+      out.push({html:prefix+connector+id+' '+escapeHtml(node.name)+cur,current:node.stage.id===currentId});
     }
     const kids=[...node.children.values()];
     kids.forEach((c,i)=>{
@@ -84,56 +96,116 @@ function linesFor(root,currentId){
   roots.forEach((r,i)=>walk(r,"",i===roots.length-1,0));
   return out;
 }
-function typeText(el,text,speed=8){
-  if(timer) clearInterval(timer);
-  el.textContent=""; let i=0;
-  timer=setInterval(()=>{el.textContent+=text[i++]||""; if(i>=text.length){clearInterval(timer);timer=null;}},speed);
+function escapeHtml(v){return String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function renderCode(s){
+  const cs=document.getElementById("codeSection"); cs.innerHTML="";
+  const wrap=document.createElement("div");wrap.className="codewrap";
+  const head=document.createElement("div");head.className="code-head";
+  if(s.code){
+    head.innerHTML="<span>"+escapeHtml(s.lang||"code")+"</span><span>instant state</span>";
+    const pre=document.createElement("pre");pre.className="code";
+    s.code.split("\n").forEach(line=>{
+      const span=document.createElement("span");span.className="code-line";
+      const focused=s.focus && line.includes(s.focus);
+      if(focused) span.classList.add("focus");
+      span.textContent=line;
+      if(focused){const a=document.createElement("span");a.className="code-arrow";a.textContent="  👈";span.appendChild(a)}
+      pre.appendChild(span);
+    });
+    wrap.append(head,pre);
+  }else{
+    head.innerHTML="<span>construction</span><span>instant state</span>";
+    const note=document.createElement("div");note.className="folder-note";
+    note.textContent="Folder exists at this stage: "+s.path.join("/")+"/";
+    wrap.append(head,note);
+  }
+  cs.appendChild(wrap);
 }
 function render(){
   const s=STAGES[index];
-  document.getElementById("meta").textContent="Commit "+s.id+" · "+(s.type==="folder"?"folder":"file");
+  document.getElementById("meta").textContent="Stage "+s.id+" · "+s.type;
+  document.getElementById("stagePill").textContent=s.id;
   document.getElementById("stageTitle").textContent=s.title;
   document.getElementById("detail").textContent=s.detail;
   document.getElementById("action").textContent="Current action: "+s.action;
-  document.getElementById("path").textContent=s.path.join("/");
+  document.getElementById("path").textContent=s.path.join(" / ");
+  document.getElementById("treePath").textContent=s.path.join("/");
   document.getElementById("jump").value=s.id;
+  document.getElementById("badge").textContent="main · "+s.id;
   document.getElementById("counter").textContent=(index+1)+" / "+STAGES.length;
   document.getElementById("prev").disabled=index===0;
   document.getElementById("next").disabled=index===STAGES.length-1;
-  const tree=document.getElementById("tree"); tree.innerHTML="";
-  linesFor(nodeTree(index),s.id).forEach(l=>{const d=document.createElement("div");d.className="tree-line"+(l.current?" current":"");d.innerHTML=l.html;tree.appendChild(d)});
-  const cs=document.getElementById("codeSection"); cs.innerHTML="";
-  const wrap=document.createElement("div"); wrap.className="codewrap"; wrap.style.marginTop="18px";
-  const head=document.createElement("div"); head.className="code-head";
-  if(s.code){
-    head.innerHTML="<span>"+s.lang+"</span><span>auto-typing</span>"; const pre=document.createElement("pre");pre.className="code";
-    wrap.append(head,pre);cs.appendChild(wrap);typeText(pre,s.code);
-  }else{
-    head.innerHTML="<span>construction</span><span>auto-typing</span>"; const note=document.createElement("div");note.className="typing-note";
-    wrap.append(head,note);cs.appendChild(wrap);typeText(note,"Creating folder → "+s.path.join("/")+"/",18);
-  }
+
+  const tree=document.getElementById("tree");tree.innerHTML="";
+  let currentEl=null;
+  linesFor(nodeTree(index),s.id).forEach(l=>{
+    const d=document.createElement("div");d.className="tree-line"+(l.current?" current":"");d.innerHTML=l.html;tree.appendChild(d);
+    if(l.current) currentEl=d;
+  });
+  renderCode(s);
   document.querySelectorAll(".stage-item").forEach((e,i)=>e.classList.toggle("active",i===index));
   history.replaceState(null,"","#commit="+encodeURIComponent(s.id));
-  document.getElementById("scroll").scrollTop=0;
+  if(currentEl) currentEl.scrollIntoView({block:"center",inline:"nearest"});
 }
 function fillSide(){
   const l=document.getElementById("stageList");l.innerHTML="";
-  STAGES.forEach((s,i)=>{const d=document.createElement("div");d.className="stage-item";d.textContent=s.id+"  "+s.name;d.onclick=()=>{index=i;render()};l.appendChild(d)});
+  STAGES.forEach((s,i)=>{
+    const d=document.createElement("div");d.className="stage-item";d.textContent=s.id+"  "+s.name;
+    d.onclick=()=>{index=i;render()};l.appendChild(d)
+  });
+}
+function normalizeQuery(q){
+  q=q.trim().toLowerCase();
+  if(/^\d+$/.test(q)) return q.padStart(6,"0");
+  const m=q.match(/^(\d+)(\..+)$/);
+  if(m) return m[1].padStart(6,"0")+m[2];
+  return q;
 }
 function jump(){
-  const q=document.getElementById("jump").value.trim().toLowerCase();
-  let i=STAGES.findIndex(s=>s.id.toLowerCase()===q);
-  if(i<0 && /^\d+$/.test(q)){const n=q.padStart(6,"0");i=STAGES.findIndex(s=>s.id===n)}
-  if(i>=0){index=i;render()} else {document.getElementById("jump").select()}
+  const q=normalizeQuery(document.getElementById("jump").value);
+  const i=STAGES.findIndex(s=>s.id.toLowerCase()===q);
+  if(i>=0){index=i;render()} else document.getElementById("jump").select();
 }
 document.getElementById("prev").onclick=()=>{if(index>0){index--;render()}};
 document.getElementById("next").onclick=()=>{if(index<STAGES.length-1){index++;render()}};
 document.getElementById("go").onclick=jump;
 document.getElementById("jump").addEventListener("keydown",e=>{if(e.key==="Enter")jump()});
-document.addEventListener("keydown",e=>{if(document.activeElement.tagName==="INPUT")return;if(e.key==="ArrowLeft"&&index>0){index--;render()}if(e.key==="ArrowRight"&&index<STAGES.length-1){index++;render()}});
+document.addEventListener("keydown",e=>{
+  if(document.activeElement.tagName==="INPUT") return;
+  if(e.key==="ArrowLeft"&&index>0){index--;render()}
+  if(e.key==="ArrowRight"&&index<STAGES.length-1){index++;render()}
+});
+
+// Draggable floating inspector. Position is remembered locally.
+const inspector=document.getElementById("inspector"),dragbar=document.getElementById("dragbar");
+let drag=null;
+function clamp(n,min,max){return Math.max(min,Math.min(max,n))}
+function savePos(){localStorage.setItem("petclinic-inspector-pos",JSON.stringify({left:inspector.style.left,top:inspector.style.top}))}
+try{
+  const p=JSON.parse(localStorage.getItem("petclinic-inspector-pos")||"null");
+  if(p&&p.left&&p.top){inspector.style.left=p.left;inspector.style.top=p.top;inspector.style.right="auto"}
+}catch(_){}
+dragbar.addEventListener("pointerdown",e=>{
+  const r=inspector.getBoundingClientRect();
+  drag={dx:e.clientX-r.left,dy:e.clientY-r.top};
+  inspector.style.left=r.left+"px";inspector.style.top=r.top+"px";inspector.style.right="auto";
+  dragbar.setPointerCapture(e.pointerId);e.preventDefault();
+});
+dragbar.addEventListener("pointermove",e=>{
+  if(!drag)return;
+  const r=inspector.getBoundingClientRect();
+  const left=clamp(e.clientX-drag.dx,4,window.innerWidth-r.width-4);
+  const top=clamp(e.clientY-drag.dy,4,window.innerHeight-r.height-80);
+  inspector.style.left=left+"px";inspector.style.top=top+"px";
+});
+function endDrag(){if(drag){drag=null;savePos()}}
+dragbar.addEventListener("pointerup",endDrag);
+dragbar.addEventListener("pointercancel",endDrag);
+
 fillSide();
 const hash=decodeURIComponent(location.hash.replace("#commit=",""));
-const hi=STAGES.findIndex(s=>s.id===hash); if(hi>=0) index=hi;
+const normalized=normalizeQuery(hash);
+const hi=STAGES.findIndex(s=>s.id===normalized);if(hi>=0)index=hi;
 render();
 </script>
 </body>
