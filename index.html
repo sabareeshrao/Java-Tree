@@ -39,7 +39,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.11</span><div class="badge" id="badge">main · 000018.d</div></div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.12</span><div class="badge" id="badge">main · 000018.d</div></div></header>
   <nav class="navstrip" aria-label="Stage navigation">
     <button class="navbtn" id="prev">◀ Previous</button>
     <div class="jump"><span>Stage</span><input id="jump" value="000018.d" placeholder="Type 1400, 1400.a…" spellcheck="false"><button class="go" id="go">Go</button></div>
@@ -85,7 +85,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 </section>
 
 <script>
-const UI_SCHEMA_VERSION="2026.10.02.11";
+const UI_SCHEMA_VERSION="2026.10.02.12";
 if(localStorage.getItem("petclinic-ui-schema")!==UI_SCHEMA_VERSION){
   localStorage.removeItem("petclinic-inspector-box");
   localStorage.setItem("petclinic-ui-schema",UI_SCHEMA_VERSION);
@@ -193,7 +193,7 @@ function renderTree(root,currentId){
 function escapeHtml(v){return String(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
 function focusInfo(s){
   if(!s.code){
-    return {lines:[],lineIndex:-1,start:0,finish:0};
+    return {lines:[],lineIndex:-1,start:0,finish:0,displayLines:[],displayFocusIndex:-1};
   }
 
   const lines=s.code.split("\n");
@@ -205,10 +205,22 @@ function focusInfo(s){
     }
   }
 
+  // New stage model: each stage can explicitly provide the meaningful code block
+  // introduced by that developer action. This takes priority over line-based context.
+  if(s.focusBlock){
+    const displayLines=String(s.focusBlock).split("\n");
+    let displayFocusIndex=s.focus
+      ? displayLines.findIndex(line=>line.includes(s.focus))
+      : -1;
+    if(displayFocusIndex<0){
+      displayFocusIndex=displayLines.findIndex(line=>line.trim().length>0);
+    }
+    return {lines,lineIndex,start:0,finish:0,displayLines,displayFocusIndex};
+  }
+
   let start=Math.max(0,lineIndex-1);
   let finish=Math.min(lines.length,lineIndex+2);
 
-  // For Maven/XML dependency stages, show the complete dependency block only.
   if((s.lang||"").toLowerCase()==="xml" && lineIndex>=0){
     let depStart=-1,depEnd=-1;
     for(let i=lineIndex;i>=0;i--){
@@ -223,14 +235,14 @@ function focusInfo(s){
     if(depStart>=0&&depEnd>=depStart&&depEnd-depStart<=8){
       start=depStart;
       finish=depEnd+1;
-    }else{
-      // For short XML properties/comments, one line of context is enough.
-      start=Math.max(0,lineIndex-1);
-      finish=Math.min(lines.length,lineIndex+2);
     }
   }
 
-  return {lines,lineIndex,start,finish};
+  return {
+    lines,lineIndex,start,finish,
+    displayLines:lines.slice(start,finish),
+    displayFocusIndex:Math.max(0,lineIndex-start)
+  };
 }
 
 function renderFocusBlock(s,info){
@@ -246,12 +258,13 @@ function renderFocusBlock(s,info){
     return;
   }
 
-  for(let i=info.start;i<info.finish;i++){
+  info.displayLines.forEach((line,i)=>{
+    const current=i===info.displayFocusIndex;
     const row=document.createElement("span");
-    row.className="focus-line"+(i===info.lineIndex?" current":"");
-    row.textContent=(i===info.lineIndex?"▶ ":"  ")+(info.lines[i]??"");
+    row.className="focus-line"+(current?" current":"");
+    row.textContent=(current?"▶ ":"  ")+line;
     box.appendChild(row);
-  }
+  });
 }
 
 function renderCode(s){
@@ -575,7 +588,7 @@ copyFocusBtn.addEventListener("click",e=>{
   const s=STAGES[index];
   const info=focusInfo(s);
   const text=s.code
-    ? info.lines.slice(info.start,info.finish).join("\n")
+    ? info.displayLines.join("\n")
     : s.path.join("/")+"/";
   copyText(text,copyFocusBtn);
 });
