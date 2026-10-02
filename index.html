@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spring PetClinic — From Zero</title>
+<style>
+:root{--bg:#212121;--side:#171717;--panel:#2f2f2f;--panel2:#1e1e1e;--text:#ececec;--muted:#a6a6a6;--border:#3a3a3a;--accent:#10a37f;--hover:#2a2a2a;--code:#0d0d0d}
+*{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:100vh}.sidebar{background:var(--side);border-right:1px solid #252525;padding:12px;display:flex;flex-direction:column;min-width:0}
+.brand{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;font-weight:650}.logo{width:28px;height:28px;border-radius:8px;background:#fff;color:#111;display:grid;place-items:center;font-weight:800}
+.newchat{margin:10px 0 16px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;color:#ddd;font-size:14px}
+.side-title{padding:8px 10px;color:#8d8d8d;font-size:12px}.stage-list{overflow:auto}.stage-item{padding:9px 10px;border-radius:8px;font-size:13px;color:#cfcfcf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.stage-item:hover{background:var(--hover)}.stage-item.active{background:#2a2a2a;color:#fff}
+.source{margin-top:auto;padding:12px 10px;color:#777;font-size:11px;line-height:1.45}.main{min-width:0;display:grid;grid-template-rows:56px 1fr 76px}
+.topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2b2b2b;padding:0 22px;background:rgba(33,33,33,.96)}.title{font-size:14px;font-weight:600}.badge{font-size:12px;color:#bbb;border:1px solid var(--border);padding:6px 9px;border-radius:999px}
+.scroll{overflow:auto}.conversation{width:min(900px,calc(100% - 36px));margin:0 auto;padding:34px 0 80px}.meta{color:#8f8f8f;font-size:13px;margin-bottom:8px}.h1{font-size:25px;font-weight:650;letter-spacing:-.02em;margin:0 0 12px}.lead{font-size:16px;line-height:1.7;color:#ddd;margin-bottom:24px}.action{border-left:3px solid var(--accent);padding:10px 14px;background:#252525;border-radius:0 10px 10px 0;margin-bottom:26px;color:#d7d7d7;line-height:1.55}
+.section-title{font-size:14px;font-weight:650;margin:22px 0 10px}.tree,.codewrap{background:var(--panel2);border:1px solid #333;border-radius:12px;overflow:hidden}.tree-head,.code-head{display:flex;justify-content:space-between;align-items:center;padding:10px 13px;border-bottom:1px solid #303030;color:#aaa;font-size:12px}
+.tree-body{padding:14px 16px;font:14px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto}.tree-line{white-space:pre}.tree-line.current{color:#fff;background:#292929;border-radius:5px}.id{color:#7dd3fc}.current-tag{color:#f6d365;font-weight:700}
+.code{margin:0;padding:16px;min-height:110px;white-space:pre-wrap;font:13.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;background:var(--code)}.typing-note{padding:14px 16px;color:#bdbdbd;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code)}
+.footer{border-top:1px solid #303030;background:#1d1d1d;display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 18px}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:10px 15px;border-radius:9px;cursor:pointer}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px}.jump input{width:126px;background:#111;border:1px solid #444;color:#fff;border-radius:8px;padding:9px 10px;font:13px ui-monospace,monospace}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:120px;color:#8e8e8e;font-size:12px;text-align:center}
+@media(max-width:780px){.app{grid-template-columns:1fr}.sidebar{display:none}.conversation{width:min(100% - 24px,900px)}.footer{gap:7px}.counter{display:none}.navbtn{padding:9px 10px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">P</div><div>PetClinic From Zero</div></div>
+  <div class="newchat">Educational reconstruction</div>
+  <div class="side-title">COMMITS</div>
+  <div class="stage-list" id="stageList"></div>
+  <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="badge">main · 000001</div></header>
+  <div class="scroll" id="scroll"><div class="conversation">
+    <div class="meta" id="meta"></div>
+    <h1 class="h1" id="stageTitle"></h1>
+    <div class="lead" id="detail"></div>
+    <div class="action" id="action"></div>
+    <div class="section-title">Project tree</div>
+    <div class="tree"><div class="tree-head"><span>Accumulated state</span><span id="path"></span></div><div class="tree-body" id="tree"></div></div>
+    <div id="codeSection"></div>
+  </div></div>
+  <footer class="footer">
+    <button class="navbtn" id="prev">◀ Previous</button>
+    <div class="jump"><span>Commit</span><input id="jump" value="000001" spellcheck="false"><button class="go" id="go">Go</button></div>
+    <button class="navbtn" id="next">Next ▶</button>
+    <div class="counter" id="counter"></div>
+  </footer>
+</main>
+</div>
+<script>
+const STAGES=[{"id":"000001","name":"spring-petclinic/","type":"folder","path":["spring-petclinic"],"title":"Create the project root","detail":"Start with only the project boundary. Nothing about Spring, Maven, Java packages, or application behavior exists yet.","action":"Create the root project folder that will contain the reconstruction."}];
+let index=STAGES.length-1, timer=null;
+
+function nodeTree(maxIndex){
+  const root={children:new Map()};
+  for(let i=0;i<=maxIndex;i++){
+    const s=STAGES[i]; let n=root;
+    s.path.forEach((part,p)=>{
+      if(!n.children.has(part)) n.children.set(part,{name:part,children:new Map(),stage:null});
+      n=n.children.get(part);
+      if(p===s.path.length-1) n.stage=s;
+    });
+  }
+  return root;
+}
+function linesFor(root,currentId){
+  const out=[];
+  function walk(node,prefix,isLast,depth){
+    if(node.stage){
+      const connector=depth===0?"":(isLast?"└── ":"├── ");
+      const id='<span class="id">'+node.stage.id+'</span>';
+      const cur=node.stage.id===currentId?' <span class="current-tag">👈 CURRENT</span>':'';
+      out.push({html:prefix+connector+id+' '+node.name+cur,current:node.stage.id===currentId});
+    }
+    const kids=[...node.children.values()];
+    kids.forEach((c,i)=>{
+      const nextPrefix=depth===0?"":prefix+(isLast?"    ":"│   ");
+      walk(c,nextPrefix,i===kids.length-1,depth+1);
+    });
+  }
+  const roots=[...root.children.values()];
+  roots.forEach((r,i)=>walk(r,"",i===roots.length-1,0));
+  return out;
+}
+function typeText(el,text,speed=8){
+  if(timer) clearInterval(timer);
+  el.textContent=""; let i=0;
+  timer=setInterval(()=>{el.textContent+=text[i++]||""; if(i>=text.length){clearInterval(timer);timer=null;}},speed);
+}
+function render(){
+  const s=STAGES[index];
+  document.getElementById("meta").textContent="Commit "+s.id+" · "+(s.type==="folder"?"folder":"file");
+  document.getElementById("stageTitle").textContent=s.title;
+  document.getElementById("detail").textContent=s.detail;
+  document.getElementById("action").textContent="Current action: "+s.action;
+  document.getElementById("path").textContent=s.path.join("/");
+  document.getElementById("jump").value=s.id;
+  document.getElementById("counter").textContent=(index+1)+" / "+STAGES.length;
+  document.getElementById("prev").disabled=index===0;
+  document.getElementById("next").disabled=index===STAGES.length-1;
+  const tree=document.getElementById("tree"); tree.innerHTML="";
+  linesFor(nodeTree(index),s.id).forEach(l=>{const d=document.createElement("div");d.className="tree-line"+(l.current?" current":"");d.innerHTML=l.html;tree.appendChild(d)});
+  const cs=document.getElementById("codeSection"); cs.innerHTML="";
+  const wrap=document.createElement("div"); wrap.className="codewrap"; wrap.style.marginTop="18px";
+  const head=document.createElement("div"); head.className="code-head";
+  if(s.code){
+    head.innerHTML="<span>"+s.lang+"</span><span>auto-typing</span>"; const pre=document.createElement("pre");pre.className="code";
+    wrap.append(head,pre);cs.appendChild(wrap);typeText(pre,s.code);
+  }else{
+    head.innerHTML="<span>construction</span><span>auto-typing</span>"; const note=document.createElement("div");note.className="typing-note";
+    wrap.append(head,note);cs.appendChild(wrap);typeText(note,"Creating folder → "+s.path.join("/")+"/",18);
+  }
+  document.querySelectorAll(".stage-item").forEach((e,i)=>e.classList.toggle("active",i===index));
+  history.replaceState(null,"","#commit="+encodeURIComponent(s.id));
+  document.getElementById("scroll").scrollTop=0;
+}
+function fillSide(){
+  const l=document.getElementById("stageList");l.innerHTML="";
+  STAGES.forEach((s,i)=>{const d=document.createElement("div");d.className="stage-item";d.textContent=s.id+"  "+s.name;d.onclick=()=>{index=i;render()};l.appendChild(d)});
+}
+function jump(){
+  const q=document.getElementById("jump").value.trim().toLowerCase();
+  let i=STAGES.findIndex(s=>s.id.toLowerCase()===q);
+  if(i<0 && /^\d+$/.test(q)){const n=q.padStart(6,"0");i=STAGES.findIndex(s=>s.id===n)}
+  if(i>=0){index=i;render()} else {document.getElementById("jump").select()}
+}
+document.getElementById("prev").onclick=()=>{if(index>0){index--;render()}};
+document.getElementById("next").onclick=()=>{if(index<STAGES.length-1){index++;render()}};
+document.getElementById("go").onclick=jump;
+document.getElementById("jump").addEventListener("keydown",e=>{if(e.key==="Enter")jump()});
+document.addEventListener("keydown",e=>{if(document.activeElement.tagName==="INPUT")return;if(e.key==="ArrowLeft"&&index>0){index--;render()}if(e.key==="ArrowRight"&&index<STAGES.length-1){index++;render()}});
+fillSide();
+const hash=decodeURIComponent(location.hash.replace("#commit=",""));
+const hi=STAGES.findIndex(s=>s.id===hash); if(hi>=0) index=hi;
+render();
+</script>
+</body>
+</html>
