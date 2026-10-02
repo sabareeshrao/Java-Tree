@@ -10,12 +10,12 @@
 body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:100vh}.sidebar{background:var(--side);border-right:1px solid #252525;padding:12px;display:flex;flex-direction:column;min-width:0}
 .brand{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;font-weight:650}.logo{width:28px;height:28px;border-radius:8px;background:#fff;color:#111;display:grid;place-items:center;font-weight:800}
 .newchat{margin:10px 0 16px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;color:#ddd;font-size:14px}.side-title{padding:8px 10px;color:#8d8d8d;font-size:12px}
-.stage-list{overflow:auto;flex:1;min-height:0}.stage-item{padding:9px 10px;border-radius:8px;font-size:13px;color:#cfcfcf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.stage-item:hover{background:var(--hover)}.stage-item.active{background:#2a2a2a;color:#fff}
+.stage-list{overflow:auto;flex:1;min-height:0}.stage-group{margin:2px 0}.stage-group-head{display:flex;align-items:center;gap:7px;padding:8px 9px;border-radius:8px;font-size:12.5px;color:#d7d7d7;cursor:pointer;user-select:none}.stage-group-head:hover{background:var(--hover)}.stage-group-caret{width:14px;color:#8f8f8f;font-family:ui-monospace,monospace}.stage-group-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.stage-group-count{margin-left:auto;color:#727272;font-size:10px}.stage-group-items{margin-left:12px;padding-left:6px;border-left:1px solid #2d2d2d}.stage-group.closed .stage-group-items{display:none}.stage-item{padding:8px 10px;border-radius:8px;font-size:12.5px;color:#cfcfcf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}.stage-item:hover{background:var(--hover)}.stage-item.active{background:#2a2a2a;color:#fff}
 .source{margin-top:auto;padding:12px 10px;color:#777;font-size:11px;line-height:1.45}.main{min-width:0;display:grid;grid-template-rows:56px 58px 1fr}
 .topbar{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #2b2b2b;padding:0 22px;background:rgba(33,33,33,.96)}.title{font-size:14px;font-weight:600}.badge{font-size:12px;color:#bbb;border:1px solid var(--border);padding:6px 9px;border-radius:999px}
 .scroll{overflow:hidden;min-height:0}.conversation{width:min(1100px,calc(100% - 36px));height:100%;margin:0 auto;padding:22px 0 18px;display:flex;flex-direction:column;min-height:0}.page-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:12px}.page-heading h1{font-size:20px;margin:0}.hint{font-size:12px;color:#777}
 .tree{background:var(--panel2);border:1px solid #333;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex:1;min-height:0}.tree-head{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:10px 13px;border-bottom:1px solid #303030;background:#1e1e1e;color:#aaa;font-size:12px}
-.tree-body{padding:14px 16px;font:14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto;flex:1;min-height:0}.tree-line{white-space:pre;width:max-content;min-width:100%;padding:1px 6px;border-radius:6px;cursor:default;user-select:none}.tree-line.branch{cursor:pointer}.tree-line.branch:hover{background:#252525}.tree-line.current{color:#fff;background:#292929}.twisty{display:inline-block;width:2ch;color:#aaa}.id{color:#7dd3fc}.current-tag{color:#f6d365;font-weight:700}
+.tree-body{padding:14px 16px;font:14px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow:auto;flex:1;min-height:0}.tree-line{white-space:pre;width:max-content;min-width:100%;padding:1px 6px;border-radius:6px;cursor:default;user-select:none}.tree-line.branch{cursor:default}.tree-line.branch:hover{background:#252525}.tree-line.current{color:#fff;background:#292929}.twisty{display:inline-block;width:2ch;color:#aaa}.id{color:#7dd3fc}.current-tag{color:#f6d365;font-weight:700}
 .inspector{position:fixed;z-index:30;top:132px;right:24px;width:min(460px,calc(100vw - 32px));height:min(50vh,540px);max-height:50vh;min-width:320px;min-height:220px;display:flex;flex-direction:column;background:#2b2b2b;border:1px solid #4a4a4a;border-radius:14px;box-shadow:0 18px 55px rgba(0,0,0,.45);overflow:hidden}.inspector.maximized{top:124px!important;left:272px!important;right:12px!important;bottom:12px!important;width:auto!important;height:auto!important;max-height:none!important}
 .dragbar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;background:#242424;border-bottom:1px solid #3a3a3a;cursor:grab;user-select:none;touch-action:none}.dragbar:active{cursor:grabbing}.draglabel{font-size:12px;color:#aaa;white-space:nowrap}.inspector-actions{display:flex;align-items:center;gap:6px;margin-left:auto}.toolbtn{border:1px solid #454545;background:#303030;color:#ddd;border-radius:7px;padding:5px 8px;font-size:11px;cursor:pointer;white-space:nowrap}.toolbtn:hover{background:#3a3a3a}.stagepill{font:12px ui-monospace,monospace;color:#d8d8d8;border:1px solid #454545;padding:4px 7px;border-radius:999px}.resize-handle{position:absolute;bottom:0;width:24px;height:24px;z-index:50;touch-action:none}.resize-handle-right{right:0;cursor:nwse-resize}.resize-handle-left{left:0;cursor:nesw-resize}.resize-handle:before,.resize-handle:after{content:"";position:absolute;bottom:5px;width:10px;height:10px}.resize-handle-right:before,.resize-handle-right:after{right:5px;border-right:2px solid #777;border-bottom:2px solid #777}.resize-handle-left:before,.resize-handle-left:after{left:5px;border-left:2px solid #777;border-bottom:2px solid #777}.resize-handle:after{width:5px;height:5px;bottom:9px}.resize-handle-right:after{right:9px}.resize-handle-left:after{left:9px}
 .inspector-body{overflow:auto;padding:14px}.imeta{font-size:12px;color:#8f8f8f;margin-bottom:7px}.ititle{font-size:18px;font-weight:650;margin-bottom:9px}.idetail{font-size:14px;line-height:1.55;color:#ddd}.iaction{margin-top:12px;border-left:3px solid var(--accent);padding:9px 11px;background:#252525;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5}.ipath{margin-top:10px;color:#999;font:11px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
@@ -91,15 +91,10 @@ function nodeTree(maxIndex){
 const collapsedPaths=new Set(JSON.parse(localStorage.getItem("petclinic-collapsed-nodes")||"[]"));
 function nodeKey(parts){return parts.join("\u001f")}
 function saveCollapsed(){localStorage.setItem("petclinic-collapsed-nodes",JSON.stringify([...collapsedPaths]))}
-function revealCurrentPath(s){
-  for(let i=1;i<s.path.length;i++) collapsedPaths.delete(nodeKey(s.path.slice(0,i)));
-  saveCollapsed();
-}
 function goToStage(i){
   if(i<0||i>=STAGES.length)return;
   index=i;
   localStorage.setItem("petclinic-selected-stage",STAGES[index].id);
-  revealCurrentPath(STAGES[index]);
   render();
 }
 function renderTree(root,currentId){
@@ -117,22 +112,22 @@ function renderTree(root,currentId){
     const id=node.stage?'<span class="id">'+node.stage.id+'</span> ':"";
     const cur=node.stage&&node.stage.id===currentId?' <span class="current-tag">👈 CURRENT</span>':"";
     d.innerHTML=prefix+connector+'<span class="twisty">'+twisty+'</span>'+id+escapeHtml(node.name)+cur;
-    d.title=node.stage?"Select stage":(hasKids?(closed?"Expand":"Collapse"):"");
+    d.title=node.stage?"Single-click: inspect • Double-click: expand/collapse":(hasKids?"Double-click: expand/collapse":"");
     const twist=d.querySelector(".twisty");
-    if(hasKids){
-      twist.title=closed?"Expand branch":"Collapse branch";
-      twist.addEventListener("click",e=>{
-        e.stopPropagation();
-        if(collapsedPaths.has(key)) collapsedPaths.delete(key); else collapsedPaths.add(key);
-        saveCollapsed();
-        render();
-      });
-    }
-    d.addEventListener("click",()=>{
+    if(hasKids) twist.title="Double-click row to "+(closed?"expand":"collapse");
+    d.addEventListener("click",e=>{
+      if(e.detail>1)return;
       if(node.stage){
         const i=STAGES.findIndex(s=>s.id===node.stage.id);
         if(i>=0)goToStage(i);
       }
+    });
+    d.addEventListener("dblclick",e=>{
+      if(!hasKids)return;
+      e.preventDefault();
+      if(collapsedPaths.has(key)) collapsedPaths.delete(key); else collapsedPaths.add(key);
+      saveCollapsed();
+      render();
     });
     tree.appendChild(d);
     if(node.stage&&node.stage.id===currentId) currentEl=d;
@@ -188,7 +183,7 @@ function render(){
 
   const currentEl=renderTree(nodeTree(index),s.id);
   renderCode(s);
-  document.querySelectorAll(".stage-item").forEach((e,i)=>e.classList.toggle("active",i===index));
+  updateSidebarActive();
   localStorage.setItem("petclinic-selected-stage",s.id);
   history.replaceState(null,"","#commit="+encodeURIComponent(s.id));
   if(currentEl){
@@ -199,12 +194,56 @@ function render(){
     }
   }
 }
+const sidebarCollapsed=new Set(JSON.parse(localStorage.getItem("petclinic-sidebar-collapsed")||"[]"));
+function saveSidebarCollapsed(){localStorage.setItem("petclinic-sidebar-collapsed",JSON.stringify([...sidebarCollapsed]))}
 function fillSide(){
   const l=document.getElementById("stageList");l.innerHTML="";
+  const groups=new Map();
   STAGES.forEach((s,i)=>{
-    const d=document.createElement("div");d.className="stage-item";d.textContent=s.id+"  "+s.name;
-    d.onclick=()=>goToStage(i);l.appendChild(d)
+    const base=s.id.split(".")[0];
+    if(!groups.has(base))groups.set(base,[]);
+    groups.get(base).push({s,i});
   });
+  groups.forEach((items,base)=>{
+    if(items.length===1){
+      const {s,i}=items[0];
+      const d=document.createElement("div");
+      d.className="stage-item";
+      d.dataset.stageId=s.id;
+      d.textContent=s.id+"  "+s.name;
+      d.onclick=()=>goToStage(i);
+      l.appendChild(d);
+      return;
+    }
+    const group=document.createElement("div");
+    group.className="stage-group"+(sidebarCollapsed.has(base)?" closed":"");
+    const head=document.createElement("div");
+    head.className="stage-group-head";
+    const main=items.find(x=>x.s.id===base)||items[0];
+    head.innerHTML='<span class="stage-group-caret">'+(sidebarCollapsed.has(base)?"▸":"▾")+'</span><span class="stage-group-label">'+escapeHtml(base+"  "+main.s.name)+'</span><span class="stage-group-count">'+items.length+'</span>';
+    head.onclick=()=>{
+      if(sidebarCollapsed.has(base))sidebarCollapsed.delete(base);else sidebarCollapsed.add(base);
+      saveSidebarCollapsed();
+      fillSide();
+      updateSidebarActive();
+    };
+    const body=document.createElement("div");
+    body.className="stage-group-items";
+    items.forEach(({s,i})=>{
+      const d=document.createElement("div");
+      d.className="stage-item";
+      d.dataset.stageId=s.id;
+      d.textContent=s.id+"  "+s.name;
+      d.onclick=()=>goToStage(i);
+      body.appendChild(d);
+    });
+    group.append(head,body);
+    l.appendChild(group);
+  });
+}
+function updateSidebarActive(){
+  const active=STAGES[index]?.id;
+  document.querySelectorAll(".stage-item").forEach(e=>e.classList.toggle("active",e.dataset.stageId===active));
 }
 function normalizeQuery(q){
   q=q.trim().toLowerCase();
@@ -349,7 +388,6 @@ const savedStage=localStorage.getItem("petclinic-selected-stage")||"";
 const hi=STAGES.findIndex(s=>s.id===normalized);
 const si=STAGES.findIndex(s=>s.id===savedStage);
 if(hi>=0) index=hi; else if(si>=0) index=si;
-revealCurrentPath(STAGES[index]);
 render();
 </script>
 </body>
