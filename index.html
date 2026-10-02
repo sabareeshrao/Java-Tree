@@ -31,7 +31,7 @@ body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:10
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="badge">main · 000003</div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="badge">main · 000004</div></header>
   <div class="scroll" id="scroll"><div class="conversation">
     <div class="meta" id="meta"></div>
     <h1 class="h1" id="stageTitle"></h1>
@@ -43,14 +43,14 @@ body{overflow:hidden}.app{display:grid;grid-template-columns:260px 1fr;height:10
   </div></div>
   <footer class="footer">
     <button class="navbtn" id="prev">◀ Previous</button>
-    <div class="jump"><span>Commit</span><input id="jump" value="000003" spellcheck="false"><button class="go" id="go">Go</button></div>
+    <div class="jump"><span>Commit</span><input id="jump" value="000004" spellcheck="false"><button class="go" id="go">Go</button></div>
     <button class="navbtn" id="next">Next ▶</button>
     <div class="counter" id="counter"></div>
   </footer>
 </main>
 </div>
 <script>
-const STAGES=[{"id":"000001","name":"spring-petclinic/","type":"folder","path":["spring-petclinic"],"title":"Create the project root","detail":"Start with only the project boundary. Nothing about Spring, Maven, Java packages, or application behavior exists yet.","action":"Create the root project folder that will contain the reconstruction."},{"id":"000002","name":"pom.xml","type":"file","path":["spring-petclinic","pom.xml"],"title":"Create the Maven build file skeleton","detail":"The finished reference project has a Maven build. We introduce the build file now, but only as a responsibility comment—no dependencies or plugins yet.","action":"Create pom.xml and document what this file will eventually control.","lang":"xml","code":"\u003c!--\n  Build configuration for Spring PetClinic.\n\n  Later stages will introduce:\n  - project coordinates\n  - Spring Boot parent/configuration\n  - Java version\n  - application dependencies\n  - build plugins\n-->"},{"id":"000003","name":"src/","type":"folder","path":["spring-petclinic","src"],"title":"Create the source root","detail":"Application code should not be mixed with root-level build files. We introduce the conventional source boundary before creating any Java code.","action":"Create src/ as the parent for application and test source trees."}];
+const STAGES=[{"id":"000001","name":"spring-petclinic/","type":"folder","path":["spring-petclinic"],"title":"Create the project root","detail":"Start with only the project boundary. Nothing about Spring, Maven, Java packages, or application behavior exists yet.","action":"Create the root project folder that will contain the reconstruction."},{"id":"000002","name":"pom.xml","type":"file","path":["spring-petclinic","pom.xml"],"title":"Create the Maven build file skeleton","detail":"The finished reference project has a Maven build. We introduce the build file now, but only as a responsibility comment—no dependencies or plugins yet.","action":"Create pom.xml and document what this file will eventually control.","lang":"xml","code":"\u003c!--\n  Build configuration for Spring PetClinic.\n\n  Later stages will introduce:\n  - project coordinates\n  - Spring Boot parent/configuration\n  - Java version\n  - application dependencies\n  - build plugins\n-->"},{"id":"000003","name":"src/","type":"folder","path":["spring-petclinic","src"],"title":"Create the source root","detail":"Application code should not be mixed with root-level build files. We introduce the conventional source boundary before creating any Java code.","action":"Create src/ as the parent for application and test source trees."},{"id":"000004","name":"main/","type":"folder","path":["spring-petclinic","src","main"],"title":"Separate production source","detail":"Maven distinguishes production code from tests. At this stage we create only the production-side boundary.","action":"Create src/main/."}];
 let index=STAGES.length-1, timer=null;
 
 function nodeTree(maxIndex){
