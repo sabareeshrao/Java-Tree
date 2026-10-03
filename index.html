@@ -42,20 +42,20 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.22</span><div class="badge" id="badge">main · 000018.d</div></div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.23</span><div class="badge" id="badge">main · 000018.d</div></div></header>
   <nav class="navstrip" aria-label="Stage navigation">
     <button class="navbtn" id="prev">◀ Previous</button>
     <div class="jump"><span>Stage</span><input id="jump" value="000018.d" placeholder="Type 1400, 1400.a…" spellcheck="false"><button class="go" id="go">Go</button></div>
     <button class="navbtn" id="next">Next ▶</button>
     <button class="navbtn utility" id="showFullTree" title="Temporarily reveal the complete final project tree">Show full tree</button>
     <button class="navbtn utility" id="centerCurrent" title="Bring the selected CURRENT row to the center of the tree">Center current</button>
-    <button class="navbtn utility file-focus-btn" id="fileFocus" title="Show only the route to the current file/code focus; keep other structural folders collapsed">File focus: Off</button>
+    <button class="navbtn utility file-focus-btn" id="fileFocus" title="Expand the current file and all of its built contents; keep every other file/folder visible but collapsed">File focus: Off</button>
     <button class="navbtn utility" id="restartBuild" title="Reset the simulator to stage 000001">Restart from zero</button>
     <button class="navbtn utility show-inspector" id="showInspector" title="Show the explanation/code inspector">Show inspector</button>
     <div class="counter" id="counter"></div>
   </nav>
   <div class="scroll" id="scroll"><div class="conversation">
-    <div class="page-heading"><h1>Accumulated project tree</h1><div class="hint">Starts at zero. File focus keeps only the current route open; other folders stay collapsed.</div></div>
+    <div class="page-heading"><h1>Accumulated project tree</h1><div class="hint">File focus expands the current file completely; every other file/folder remains visible but collapsed.</div></div>
     <div class="tree"><div class="tree-head"><div class="tree-head-left"><span>Built project tree</span><span class="tree-current" id="treeCurrent"></span></div><span class="tree-state" id="treePath"></span></div><div class="tree-body" id="tree"></div></div>
   </div></div>
 </main>
@@ -90,7 +90,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 </section>
 
 <script>
-const UI_SCHEMA_VERSION="2026.10.02.22";
+const UI_SCHEMA_VERSION="2026.10.02.23";
 if(localStorage.getItem("petclinic-ui-schema")!==UI_SCHEMA_VERSION){
   localStorage.removeItem("petclinic-inspector-box");
   localStorage.setItem("petclinic-ui-schema",UI_SCHEMA_VERSION);
@@ -166,37 +166,25 @@ function renderTree(root,currentId){
   }
   tree.innerHTML="";
   let currentEl=null;
-  function shouldRenderInFileFocus(node,parts){
-    if(!fileFocusMode||!currentPath.length) return true;
-
-    // Always keep only the direct route to CURRENT visible.
-    // This includes project/folder ancestors, the current file, and the
-    // specific code-block path under that file.
-    if(pathStartsWith(currentPath,parts)) return true;
-
-    // Outside the active route, retain structural folders only as compact
-    // collapsed landmarks. Never dump sibling code nodes from the current file.
-    const hasKids=node.children.size>0;
-    const structuralFolder=hasKids&&!isFileNodeName(node.name);
-    return structuralFolder&&parts.length<=currentFilePath.length;
-  }
-
   function walk(node,prefix,isLast,depth,parts){
     const kids=[...node.children.values()];
     const hasKids=kids.length>0;
 
-    if(!shouldRenderInFileFocus(node,parts)) return;
-
     const key=nodeKey(parts);
     let closed=collapsedPaths.has(key)&&!forceOpenKeys.has(key);
 
-    if(fileFocusMode&&currentPath.length){
-      const onCurrentRoute=pathStartsWith(currentPath,parts);
-      if(onCurrentRoute){
-        // Force-open only the exact route to CURRENT.
+    if(fileFocusMode&&currentFilePath.length){
+      const onWayToCurrentFile=pathStartsWith(currentFilePath,parts);
+      const insideCurrentFile=pathStartsWith(parts,currentFilePath);
+
+      if(onWayToCurrentFile||insideCurrentFile){
+        // The complete current file is the focus:
+        // open its ancestor route AND every built node/substage inside it.
+        // Example: 000041.a, 000041.b, 000041.c ... all stay visible together.
         closed=false;
       }else if(hasKids){
-        // All other visible structural folders are landmarks only.
+        // Do not hide the rest of the project. Keep every other file/folder
+        // visible as a compact collapsed branch.
         closed=true;
       }
     }
@@ -241,9 +229,8 @@ function renderTree(root,currentId){
       if(!hasKids)return;
       e.preventDefault();
 
-      if(fileFocusMode&&currentPath.length){
-        const onCurrentRoute=pathStartsWith(currentPath,parts);
-        if(!onCurrentRoute) return;
+      if(fileFocusMode&&currentFilePath.length){
+        return;
       }
 
       if(collapsedPaths.has(key)) collapsedPaths.delete(key); else collapsedPaths.add(key);
@@ -253,12 +240,9 @@ function renderTree(root,currentId){
     tree.appendChild(d);
     if((node.stage&&node.stage.id===currentId)||(node.logicalParent&&node.logicalParent.id===currentId)) currentEl=d;
     if(closed) return;
-    const visibleKids=fileFocusMode
-      ? kids.filter(child=>shouldRenderInFileFocus(child,parts.concat(child.name)))
-      : kids;
-    visibleKids.forEach((child,i)=>{
+    kids.forEach((child,i)=>{
       const nextPrefix=depth===0?"":prefix+(isLast?"    ":"│   ");
-      walk(child,nextPrefix,i===visibleKids.length-1,depth+1,parts.concat(child.name));
+      walk(child,nextPrefix,i===kids.length-1,depth+1,parts.concat(child.name));
     });
   }
   const roots=[...root.children.values()];
