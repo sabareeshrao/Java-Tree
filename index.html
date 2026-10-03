@@ -27,7 +27,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 .inspector-body{flex:1 1 auto;min-height:0;overflow:auto;padding:12px 14px 14px;scrollbar-gutter:stable}.imeta{font-size:12px;color:#8f8f8f;margin-bottom:7px}.ititle{font-size:18px;font-weight:650;margin-bottom:9px}.idetail{font-size:14px;line-height:1.55;color:#ddd}.iaction{margin-top:12px;border-left:3px solid var(--accent);padding:9px 11px;background:#252525;border-radius:0 8px 8px 0;font-size:13px;line-height:1.5}.ipath{margin-top:10px;color:#999;font:11px/1.5 ui-monospace,monospace;overflow-wrap:anywhere}
 .code{margin:0;padding:10px 0;max-height:270px;font:12px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#e8e8e8;overflow:auto;scrollbar-gutter:stable}.code-line{display:block;padding:0 10px;white-space:pre}.code-line.focus{background:rgba(46,160,67,.18);font-weight:700;box-shadow:inset 3px 0 0 #3fb950}.code-line.focus-block{background:rgba(46,160,67,.13);box-shadow:inset 3px 0 0 #3fb950}.code-line.focus-block-start{border-top:none}.code-line.focus-block-end{border-bottom:none}.code-line.focus-block-marker{background:rgba(46,160,67,.24);font-weight:700}.code-line.previous-block{background:rgba(248,81,73,.12);box-shadow:inset 3px 0 0 #f85149}.code-line.previous-block-marker{background:rgba(248,81,73,.22);font-weight:700}.code-arrow{color:#3fb950;font-weight:700}.previous-arrow{color:#f85149;font-weight:700}.full-state-details{margin-top:12px;border:1px solid #3a3a3a;border-radius:9px;background:#151515;overflow:hidden}.full-state-details summary{cursor:pointer;padding:10px 11px;color:#aaa;font-size:11px;user-select:none;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.full-state-details[open] summary{border-bottom:1px solid #303030;color:#ddd}.diff-legend{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:999px;font:10px ui-monospace,monospace}.diff-legend.current{color:#7ee787;background:rgba(46,160,67,.14);border:1px solid rgba(63,185,80,.45)}.diff-legend.previous{color:#ff7b72;background:rgba(248,81,73,.12);border:1px solid rgba(248,81,73,.4)}
 .folder-note{padding:12px;color:#c8c8c8;font:12px/1.5 ui-monospace,monospace}
-.navstrip{position:sticky;top:56px;z-index:17;height:58px;border-bottom:1px solid #303030;background:rgba(29,29,29,.985);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:9px 22px;min-width:0}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:9px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}.navbtn.utility{background:#242424;color:#cfcfcf}.navbtn.utility:hover{background:#333}.navbtn.show-inspector{display:none}.navbtn.show-inspector.visible{display:inline-flex}.inspector.hidden{display:none!important}.navbtn:hover:not(:disabled){background:#383838}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px;min-width:0}.jump input{width:190px;background:#111;border:1px solid #4a4a4a;color:#fff;border-radius:9px;padding:9px 11px;font:13px ui-monospace,monospace;outline:none}.jump input:focus{border-color:#777;box-shadow:0 0 0 2px rgba(255,255,255,.06)}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:92px;color:#8e8e8e;font-size:12px;text-align:left}
+.navstrip{position:sticky;top:56px;z-index:17;height:58px;border-bottom:1px solid #303030;background:rgba(29,29,29,.985);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:9px 22px;min-width:0}.navbtn{background:#2d2d2d;color:#eee;border:1px solid #444;padding:9px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}.navbtn.utility{background:#242424;color:#cfcfcf}.navbtn.utility:hover{background:#333}.navbtn.file-focus-btn.active{background:#17342d;border-color:#315e52;color:#8ad6c2}.navbtn.show-inspector{display:none}.navbtn.show-inspector.visible{display:inline-flex}.inspector.hidden{display:none!important}.navbtn:hover:not(:disabled){background:#383838}.navbtn:disabled{opacity:.35;cursor:not-allowed}.jump{display:flex;align-items:center;gap:8px;color:#aaa;font-size:13px;min-width:0}.jump input{width:190px;background:#111;border:1px solid #4a4a4a;color:#fff;border-radius:9px;padding:9px 11px;font:13px ui-monospace,monospace;outline:none}.jump input:focus{border-color:#777;box-shadow:0 0 0 2px rgba(255,255,255,.06)}.go{background:#f4f4f4;color:#111;border:0;border-radius:8px;padding:9px 12px;font-weight:650;cursor:pointer}.counter{min-width:92px;color:#8e8e8e;font-size:12px;text-align:left}
 .stage-list,.scroll,.tree-body,.inspector-body,.focus-code,.code{scrollbar-width:thin;scrollbar-color:#555 transparent}.stage-list::-webkit-scrollbar,.scroll::-webkit-scrollbar,.tree-body::-webkit-scrollbar,.inspector-body::-webkit-scrollbar,.focus-code::-webkit-scrollbar,.code::-webkit-scrollbar{width:8px;height:8px}.stage-list::-webkit-scrollbar-thumb,.scroll::-webkit-scrollbar-thumb,.tree-body::-webkit-scrollbar-thumb,.inspector-body::-webkit-scrollbar-thumb,.focus-code::-webkit-scrollbar-thumb,.code::-webkit-scrollbar-thumb{background:#555;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.stage-list::-webkit-scrollbar-thumb:hover,.scroll::-webkit-scrollbar-thumb:hover,.tree-body::-webkit-scrollbar-thumb:hover,.inspector-body::-webkit-scrollbar-thumb:hover,.focus-code::-webkit-scrollbar-thumb:hover,.code::-webkit-scrollbar-thumb:hover{background:#6a6a6a;background-clip:padding-box}
 @media(max-width:780px){.app{grid-template-columns:1fr}.sidebar{display:none}.conversation{width:min(100% - 16px,1100px)}.navstrip{padding:8px;gap:6px;overflow-x:auto}.counter{display:none}.navbtn{padding:9px 10px}.jump input{width:132px}.tree-body{max-height:calc(100vh - 165px);min-height:420px}.inspector{top:126px;right:8px;width:calc(100vw - 16px);height:50vh;max-height:50vh}.inspector.maximized{top:118px!important;left:8px!important;right:8px!important;bottom:8px!important}.draglabel{display:none}.toolbtn{padding:5px 7px}}
 </style>
@@ -42,13 +42,14 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
   <div class="source">Reference: spring-projects/spring-petclinic<br>pinned at <span style="font-family:monospace">500158f73241</span></div>
 </aside>
 <main class="main">
-  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.20</span><div class="badge" id="badge">main · 000018.d</div></div></header>
+  <header class="topbar"><div class="title">Spring PetClinic — detailed construction tree</div><div class="topmeta"><span class="buildmark">UI build 2026.10.02.21</span><div class="badge" id="badge">main · 000018.d</div></div></header>
   <nav class="navstrip" aria-label="Stage navigation">
     <button class="navbtn" id="prev">◀ Previous</button>
     <div class="jump"><span>Stage</span><input id="jump" value="000018.d" placeholder="Type 1400, 1400.a…" spellcheck="false"><button class="go" id="go">Go</button></div>
     <button class="navbtn" id="next">Next ▶</button>
     <button class="navbtn utility" id="showFullTree" title="Temporarily reveal the complete final project tree">Show full tree</button>
     <button class="navbtn utility" id="centerCurrent" title="Bring the selected CURRENT row to the center of the tree">Center current</button>
+    <button class="navbtn utility file-focus-btn" id="fileFocus" title="Keep only the current file branch expanded; collapse the remaining tree">File focus: Off</button>
     <button class="navbtn utility" id="restartBuild" title="Reset the simulator to stage 000001">Restart from zero</button>
     <button class="navbtn utility show-inspector" id="showInspector" title="Show the explanation/code inspector">Show inspector</button>
     <div class="counter" id="counter"></div>
@@ -89,7 +90,7 @@ html{scroll-behavior:auto}body{overflow-y:auto;overflow-x:hidden}.app{display:gr
 </section>
 
 <script>
-const UI_SCHEMA_VERSION="2026.10.02.20";
+const UI_SCHEMA_VERSION="2026.10.02.21";
 if(localStorage.getItem("petclinic-ui-schema")!==UI_SCHEMA_VERSION){
   localStorage.removeItem("petclinic-inspector-box");
   localStorage.setItem("petclinic-ui-schema",UI_SCHEMA_VERSION);
@@ -99,6 +100,7 @@ let index=0;
 let builtThroughIndex=0;
 let showFullTreeMode=false;
 let wholeLogicalMode=false;
+let fileFocusMode=localStorage.getItem("petclinic-file-focus-mode")==="1";
 let revealTreeAfterRender=false;
 let treeClickTimer=null;
 
@@ -120,6 +122,23 @@ function nodeTree(maxIndex){
 }
 const collapsedPaths=new Set();
 function nodeKey(parts){return parts.join("\u001f")}
+function isFileNodeName(part){
+  return part==="pom.xml"||/\.(java|xml|properties|sql|html|css|scss|js|json|yml|yaml|md|txt)$/.test(String(part));
+}
+function activeFilePath(stage){
+  if(!stage||!Array.isArray(stage.path)) return [];
+  const fileIndex=stage.path.findIndex(isFileNodeName);
+  if(fileIndex>=0) return stage.path.slice(0,fileIndex+1);
+  return stage.path.slice();
+}
+function pathStartsWith(path,prefix){
+  if(prefix.length>path.length) return false;
+  for(let i=0;i<prefix.length;i++) if(path[i]!==prefix[i]) return false;
+  return true;
+}
+function samePath(a,b){
+  return a.length===b.length&&pathStartsWith(a,b);
+}
 function saveCollapsed(){/* session-only: a fresh page load starts from the clean build view */}
 function goToStage(i){
   if(i<0||i>=STAGES.length)return;
@@ -140,6 +159,7 @@ function renderTree(root,currentId){
   const previousTop=tree.scrollTop,previousLeft=tree.scrollLeft;
   const currentStage=STAGES.find(s=>s.id===currentId)||STAGES.find(s=>s.logicalParent&&s.logicalParent.id===currentId);
   const currentPath=currentStage?(currentId===currentStage.id?currentStage.path:(currentStage.logicalParent?.path||currentStage.path)):[];
+  const currentFilePath=activeFilePath(currentStage);
   const forceOpenKeys=new Set();
   if(revealTreeAfterRender&&currentStage){
     for(let i=1;i<currentPath.length;i++) forceOpenKeys.add(nodeKey(currentPath.slice(0,i)));
@@ -150,7 +170,20 @@ function renderTree(root,currentId){
     const kids=[...node.children.values()];
     const hasKids=kids.length>0;
     const key=nodeKey(parts);
-    const closed=collapsedPaths.has(key)&&!forceOpenKeys.has(key);
+    let closed=collapsedPaths.has(key)&&!forceOpenKeys.has(key);
+
+    if(fileFocusMode&&currentFilePath.length){
+      const onWayToFile=pathStartsWith(currentFilePath,parts);
+      const insideCurrentFile=pathStartsWith(parts,currentFilePath);
+      if(onWayToFile||insideCurrentFile){
+        // Keep the complete current-file route and its code structure open.
+        closed=false;
+      }else if(hasKids){
+        // Everything else stays visible as a compact collapsed branch.
+        closed=true;
+      }
+    }
+
     const d=document.createElement("div");
     const stageCurrent=node.stage&&node.stage.id===currentId;
     const parentCurrent=node.logicalParent&&node.logicalParent.id===currentId;
@@ -190,6 +223,13 @@ function renderTree(root,currentId){
       treeClickTimer=null;
       if(!hasKids)return;
       e.preventDefault();
+
+      if(fileFocusMode&&currentFilePath.length){
+        const onWayToFile=pathStartsWith(currentFilePath,parts);
+        const insideCurrentFile=pathStartsWith(parts,currentFilePath);
+        if(!onWayToFile&&!insideCurrentFile) return;
+      }
+
       if(collapsedPaths.has(key)) collapsedPaths.delete(key); else collapsedPaths.add(key);
       saveCollapsed();
       render();
@@ -639,6 +679,10 @@ function render(){
   const logicalBtn=document.getElementById("toggleLogicalBlock");
   logicalBtn.classList.toggle("visible",!!raw.logicalParent);
   logicalBtn.textContent=wholeLogicalMode&&raw.logicalParent?"Sub-block":"Whole block";
+
+  const fileFocusBtn=document.getElementById("fileFocus");
+  fileFocusBtn.classList.toggle("active",fileFocusMode);
+  fileFocusBtn.textContent=fileFocusMode?"File focus: On":"File focus: Off";
   document.getElementById("meta").textContent="Stage "+s.id+" · "+(wholeLogicalMode&&raw.logicalParent?"whole logical block":s.type);
   document.getElementById("stagePill").textContent=s.id;
   document.getElementById("stageTitle").textContent=s.title;
@@ -646,7 +690,7 @@ function render(){
   document.getElementById("action").textContent="Current action: "+s.action;
   document.getElementById("path").textContent=s.path.join(" / ");
   document.getElementById("treeCurrent").textContent="CURRENT "+s.id+" · "+s.name;
-  document.getElementById("treePath").textContent=(showFullTreeMode?"FULL TREE PREVIEW · ":"")+"built "+builtStageId()+" · inspecting "+s.id;
+  document.getElementById("treePath").textContent=(showFullTreeMode?"FULL TREE PREVIEW · ":"")+(fileFocusMode?"FILE FOCUS · ":"")+"built "+builtStageId()+" · inspecting "+s.id;
   document.getElementById("showFullTree").textContent=showFullTreeMode?"Return to build":"Show full tree";
   document.getElementById("jump").value=s.id;
   document.getElementById("badge").textContent="main · "+s.id;
@@ -762,11 +806,19 @@ function moveStage(delta){
 }
 document.getElementById("prev").onclick=()=>moveStage(-1);
 document.getElementById("next").onclick=()=>moveStage(1);
+document.getElementById("fileFocus").onclick=()=>{
+  fileFocusMode=!fileFocusMode;
+  localStorage.setItem("petclinic-file-focus-mode",fileFocusMode?"1":"0");
+  revealTreeAfterRender=true;
+  render();
+};
 document.getElementById("restartBuild").onclick=()=>{
   index=0;
   builtThroughIndex=0;
   showFullTreeMode=false;
   wholeLogicalMode=false;
+  fileFocusMode=false;
+  localStorage.setItem("petclinic-file-focus-mode","0");
   collapsedPaths.clear();
   sidebarCollapsed.clear();
   saveBuiltThrough();
